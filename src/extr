@@ -1,0 +1,6 @@
+<DisplayTable displayData={this.state.displayData} searchFn={this.sortFn}/>
+
+
+fetch(ApiUrl)
+      .then(response => response.json())
+      .then(this.loadData)
