@@ -8,7 +8,7 @@ import Table from 'react-bootstrap/Table'
 class DisplayTable extends Component {
 
   state={
-    displayData: null,
+    displayData: this.props.displayData,
     sortType: null
   }
 
@@ -20,11 +20,10 @@ class DisplayTable extends Component {
       return null
     }
     // console.log(this.state.data)
-    return this.state.displayData.map(row =>
-      <tr key={row.id}>
-        <td>{row.title}</td>
-        <td>{row.description}</td>
-        <td>{row.comments.length}</td>
+    return this.state.displayData.map(quote =>
+      <tr key={quote.id}>
+        <td>{quote.author}</td>
+        <td>{quote.en}</td>
       </tr>
       )
   }
@@ -43,9 +42,8 @@ class DisplayTable extends Component {
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>comments</th>
+            <th>Author</th>
+            <th>Quote</th>
           </tr>
         </thead>
         <tbody>

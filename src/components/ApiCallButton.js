@@ -7,12 +7,17 @@ import Button from 'react-bootstrap/Button'
 // import {Link} from 'react-router-dom'
 
 class ApiCallButton extends Component {
+    
+    
+    componentDidMount() {
+    console.log("test3")
+  }
 
     render() {
         const isLoading =false
         return (
             <div>
-      <Button variant="primary" disabled={isLoading} onClick={!isLoading ?  this.props.apiCallFn() : null}>
+      <Button variant="primary" disabled={isLoading} onClick={this.props.apiCallFn}>
       Load Data
       </Button>
       </div>
