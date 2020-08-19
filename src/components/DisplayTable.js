@@ -7,20 +7,13 @@ import Table from 'react-bootstrap/Table'
 
 class DisplayTable extends Component {
 
-  state={
-    displayData: this.props.displayData,
-    sortType: null
-  }
-
-
 
   genTable = () => {
-    console.log(this.state)
-    if (!this.state.data){
+    if (!this.props.displayData){
       return null
     }
     // console.log(this.state.data)
-    return this.state.displayData.map(quote =>
+    return this.props.displayData.map(quote =>
       <tr key={quote.id}>
         <td>{quote.author}</td>
         <td>{quote.en}</td>
@@ -29,21 +22,24 @@ class DisplayTable extends Component {
   }
 
   componentDidMount() {
-    
-  }
 
+  }
+  
+  
+  
+  
   render() {
-    if (!this.state.displayData){
+    if (!this.props.displayData){
       return null
     }
     return (
       <div>
-      <h1>{this.state.displayData.title}</h1>
+      <h1>{this.props.displayData.title}</h1>
         <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Author</th>
-            <th>Quote</th>
+            <th onClick={() => this.props.setSort('author')}>Author {this.props.authorSortIcon}</th>
+            <th onClick={() => this.props.setSort('en')}>Quote {this.props.quoteSortIcon}</th>
           </tr>
         </thead>
         <tbody>

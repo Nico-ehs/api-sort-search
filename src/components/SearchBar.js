@@ -15,7 +15,7 @@ class SearchBar extends Component {
   searchUpdate = (e) => {
     let change = {}
     change[e.target.id] = e.target.value
-    this.props.searchFn(change)
+    this.props.setSearch(change)
   };
 
   render() {
